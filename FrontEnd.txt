@@ -1,0 +1,30 @@
+/client
+  /auth
+      /components               # React components for OAuth (e.g., Google login button)
+        - OAuthLoginButton.js    # A button to trigger the OAuth login (e.g., "Login with Google")
+      oauthService.js            # Service that manages OAuth flow (redirects, handling tokens)
+    .env                         # Store client-specific environment variables (like API keys)
+  /public                # Public files (static assets, HTML files)
+    index.html           # Main HTML file for React
+    favicon.ico          # Favicon for your app
+    ...
+  /src                   # Source files for your React app
+    /components          # React components (UI elements)
+      - MapComponent.js  # Map showing garage locations
+      - GarageCard.js    # Individual garage info card
+      - SearchBar.js     # Search bar for finding garages
+      - Filter.js        # Filters for sorting/searching garages
+    /pages               # Pages for different app routes
+      - HomePage.js      # Home page (Map + Garage list)
+      - GarageDetail.js  # Detailed view for a specific garage
+    /services            # Functions for interacting with the backend API
+      - garageService.js # API calls to fetch garage data
+    /styles              # Styles (CSS or styled-components)
+      - App.css          # Global styles for your app
+      - MapComponent.css # Map component specific styles
+    /utils               # Utility functions (optional)
+      - formatDate.js    # Example utility function
+    App.js               # Main React component
+    index.js             # Entry point for React
+    .env                 # Environment variables (e.g., API keys)
+    package.json         # React project dependencies and scripts
