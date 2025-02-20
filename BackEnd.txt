@@ -1,26 +1,21 @@
 /server
-  /auth
-    /controllers
-      - authController.js       # Handles OAuth callback and user creation/updating
-    /models
-      - User.js                 # User model to store user data (after OAuth login)
-    /routes
-      - authRoutes.js           # Routes for OAuth login and callback (e.g., `/auth/google`, `/auth/google/callback`)
-    /services
-      - authService.js          # OAuth logic: interacts with OAuth provider (Google, GitHub, etc.)
-  /controllers          # Logic for handling requests (API routes)
-    - garageController.js  # Handles logic for fetching garage data
-  /models               # Database models (e.g., Mongoose for MongoDB)
-    - Garage.js         # Mongoose schema for the Garage model
-  /routes               # API route definitions
-    - garageRoutes.js   # Defines routes for fetching and creating garages
-  /services             # External service integrations (e.g., real-time updates)
-    - realTimeService.js # Logic for handling real-time updates (optional)
-  /config               # Configuration files (DB connection, environment)
-    - db.js             # DB connection logic (MongoDB)
-    - config.js         # General settings/configuration (e.g., JWT, DB URI)
-  /utils                # Helper functions (optional)
-    - errorHandler.js   # Custom error handling (optional)
-  server.js             # Entry point for the Express backend
-  .env                  # Environment variables (e.g., MongoDB URI, API keys)
-  package.json          # Backend dependencies and scripts
+  /auth                       # Authentication-related logic (OAuth)
+    - authController.js        # Handles OAuth callback and user info
+    - authRoutes.js            # Routes for OAuth login and callback
+    - authService.js           # OAuth integration logic (token exchange, validation)
+  /api                        # API logic (garage data, user data, etc.)
+    /controllers              # Logic to handle API requests
+      - garageController.js    # Controller for handling garage API routes
+      - userController.js      # Controller for user-related API logic
+    /models                   # Database models (e.g., Garage, User)
+      - Garage.js              # Mongoose schema for garage
+      - User.js                # Mongoose schema for user data (OAuth data)
+    /routes                   # API route definitions
+      - garageRoutes.js        # Routes related to garages (GET, POST, etc.)
+      - userRoutes.js          # Routes related to users (GET, POST, etc.)
+    /services                  # Business logic and utility functions
+      - garageService.js       # Logic for garage data (fetch, add, update)
+      - userService.js         # Logic for handling user-related operations (OAuth)
+  server.js                   # Entry point for backend app (Express setup)
+  .env                        # Environment variables for backend (API keys, OAuth secrets)
+  package.json                # Backend dependencies and scripts
