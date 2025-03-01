@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import ParkingGarages from './components/ParkingGarages';
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Hello, world!</h1> {/* Basic content to see if anything shows up */}
-    </div>
-  );
+    return (
+        <div className="App">
+            <ParkingGarages />
+        </div>
+    );
 }
 
 export default App;
