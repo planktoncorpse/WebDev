@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../index.css';
 
-// Initial garage data, with 0 current spots (fully available by default)
 const initialGarages = [
   { name: "Garage A", current: 0, capacity: 1647 },
   { name: "Garage B", current: 0, capacity: 1289 },
@@ -27,14 +26,17 @@ const getGarageStatusClass = (current, capacity) => {
 };
 
 const GarageStatusPage = () => {
-  // State to hold garage data with dynamic current spots
   const [garages, setGarages] = useState(initialGarages);
 
-  // Function to simulate the change in parking availability (to test different statuses)
+  // Fetch parking data from backend
   useEffect(() => {
-    // Here you can update the garage data dynamically if needed
-    // For example, you can simulate full parking or other scenarios by adjusting `current`
-    // For now, we leave the state at 0 to keep all garages as fully available (green).
+    fetch('/api/parking')
+      .then((response) => response.json())
+      .then((data) => {
+        // Set the parking data in the state
+        setGarages(data);
+      })
+      .catch((error) => console.error('Error fetching parking data:', error));
   }, []);
 
   return (
