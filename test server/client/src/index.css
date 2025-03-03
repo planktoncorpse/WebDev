@@ -1,8 +1,89 @@
-/* index.css */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    margin: 0;
-    padding: 0;
-  }
-  
+/* Styling for the entire app */
+.App {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Navigation Bar Styling */
+.navbar {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Banner Style (Black background, Gold Text) */
+.banner {
+  background-color: black;
+  color: gold;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%; /* Full width */
+}
+
+/* Garage List Styling */
+.garages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Split garages into two rows */
+.garage-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Add space between each garage in the row */
+}
+
+/* Each garage box */
+.garage-address {
+  margin: 15px;
+  padding: 20px;
+  width: 250px;  /* Adjust the size as necessary */
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: gold; /* Background color for the garage boxes */
+}
+
+/* Banner Style (Black background, Gold Text) */
+.garage-banner {
+  background-color: black;
+  color: gold;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Garage Information Styling */
+.garage-info {
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  color: black;  /* Text color for garage information */
+}
+
+/* Additional styling for information text */
+.garage-info p {
+  margin: 5px 0;
+}
