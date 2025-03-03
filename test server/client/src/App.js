@@ -18,8 +18,8 @@ const App = () => {
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/garage-status">Garage Status</Link></li>
-              <li><Link to="/contact-us">Contact Us</Link></li>
               <li><Link to="/login">Login</Link></li>
+              <li><Link to="/contact-us">Contact Us</Link></li>
             </ul>
           </nav>
         </header>
@@ -28,9 +28,9 @@ const App = () => {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/garage-status" element={<GarageStatusPage />} />
-            <Route path="/contact-us" element={<ContactUsPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/contact-us" element={<ContactUsPage />} />
           </Routes>
         </main>
       </div>
