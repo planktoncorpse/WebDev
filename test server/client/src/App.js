@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // Make sure Routes and Route are properly imported
-import './index.css';  // Ensure this file is correctly imported
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';  // Ensure correct imports
+import './index.css';  // Assuming your styles are in index.css
 
 // Components for different pages
 import HomePage from './components/HomePage';
@@ -22,7 +22,7 @@ const App = () => {
         </header>
 
         <main>
-          <Routes> {/* Use Routes instead of Switch */}
+          <Routes> {/* Use Routes to wrap Route elements */}
             <Route path="/" element={<HomePage />} />
             <Route path="/garage-status" element={<GarageStatusPage />} />
             <Route path="/contact-us" element={<ContactUsPage />} />
