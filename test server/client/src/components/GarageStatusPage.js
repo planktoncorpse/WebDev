@@ -1,29 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../index.css';
 
-const garages = [
-  { name: "Garage A", current: 1647, capacity: 1647 },
-  { name: "Garage B", current: 1289, capacity: 1289 },
-  { name: "Garage C", current: 1852, capacity: 1852 },
-  { name: "Garage D", current: 1278, capacity: 1289 },
-  { name: "Garage H", current: 1340, capacity: 1340 },
-  { name: "Garage I", current: 1270, capacity: 1270 },
+// Initial garage data, with 0 current spots (fully available by default)
+const initialGarages = [
+  { name: "Garage A", current: 0, capacity: 1647 },
+  { name: "Garage B", current: 0, capacity: 1289 },
+  { name: "Garage C", current: 0, capacity: 1852 },
+  { name: "Garage D", current: 0, capacity: 1289 },
+  { name: "Garage H", current: 0, capacity: 1340 },
+  { name: "Garage I", current: 0, capacity: 1270 },
 ];
 
-// Function to determine garage fullness and assign color
+// Function to determine garage fullness and assign color based on availability
 const getGarageStatusClass = (current, capacity) => {
   const percentageFull = (current / capacity) * 100;
 
-  if (percentageFull > 75) {
-    return 'green'; // More than 75% full -> Green
-  } else if (percentageFull < 25) {
-    return 'red'; // Less than 25% full -> Red
+  if (percentageFull === 0) {
+    return 'green'; // Green: 100% available (no spots taken)
+  } else if (percentageFull > 75) {
+    return 'red'; // Red: More than 75% full
+  } else if (percentageFull <= 75 && percentageFull >= 25) {
+    return 'orange'; // Orange: Between 25% and 75%
   } else {
-    return 'orange'; // Between 25% and 75% -> Orange
+    return 'green'; // Green: Less than 25% full
   }
 };
 
 const GarageStatusPage = () => {
+  // State to hold garage data with dynamic current spots
+  const [garages, setGarages] = useState(initialGarages);
+
+  // Function to simulate the change in parking availability (to test different statuses)
+  useEffect(() => {
+    // Here you can update the garage data dynamically if needed
+    // For example, you can simulate full parking or other scenarios by adjusting `current`
+    // For now, we leave the state at 0 to keep all garages as fully available (green).
+  }, []);
+
   return (
     <div className="App">
       <h1>Garage Fullness</h1>

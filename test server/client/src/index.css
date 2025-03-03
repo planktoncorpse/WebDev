@@ -63,6 +63,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   background-color: gold; /* Background color for the garage boxes */
+  color: black; /* Text color for the garage box */
 }
 
 /* Banner Style (Black background, Gold Text) */
@@ -73,6 +74,7 @@
   text-align: center;
   border-radius: 5px;
   margin-bottom: 10px;
+  font-size: 18px;
 }
 
 /* Garage Information Styling */
@@ -81,9 +83,56 @@
   text-align: center;
   border-radius: 5px;
   color: black;  /* Text color for garage information */
+  background-color: transparent;  /* Transparent background */
 }
 
 /* Additional styling for information text */
 .garage-info p {
   margin: 5px 0;
+  font-size: 16px;
+  color: black;
+}
+
+/* Styling for the Garage Status Page */
+.garage-status {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.green {
+  background-color: green;
+  color: black;
+  border-radius: 10px; /* Rounded edges for green garage status boxes */
+}
+
+.red {
+  background-color: red;
+  color: black;
+  border-radius: 10px; /* Rounded edges for red garage status boxes */
+}
+
+.orange {
+  background-color: orange;
+  color: black;
+  border-radius: 10px; /* Rounded edges for orange garage status boxes */
+}
+
+.garage-status-box {
+  margin: 15px;
+  padding: 20px;
+  width: 250px;
+  border: 2px solid #ddd;
+  border-radius: 10px; /* Added rounded edges here */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.garage-status-banner {
+  background-color: black;
+  color: gold;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
