@@ -4,13 +4,14 @@ const session = require('express-session');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const mysql = require('mysql2');
 const dotenv = require('dotenv');
+
 const app = express();
 const port = 5000;
 
-// Load environment variables from .env file
+// Load environment variables
 dotenv.config();
 
-// Create MySQL connection
+// Set up MySQL connection
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
@@ -20,27 +21,25 @@ const db = mysql.createConnection({
 
 // Set up session management
 app.use(session({
-  secret: 'your-secret-key', // Change to a secure value
+  secret: process.env.SESSION_SECRET || 'fallback-secret-key',
   resave: false,
   saveUninitialized: true
 }));
 
-// Set up Passport for OAuth
+// Set up Passport for Google OAuth
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   callbackURL: "http://localhost:5000/auth/google/callback"
-},
-function(accessToken, refreshToken, profile, done) {
-  // Store user info in session after successful login
-  return done(null, profile);
+}, (accessToken, refreshToken, profile, done) => {
+  return done(null, profile);  // Store user profile
 }));
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser((user, done) => {
   done(null, user);
 });
 
-passport.deserializeUser(function(user, done) {
+passport.deserializeUser((user, done) => {
   done(null, user);
 });
 
@@ -48,36 +47,28 @@ passport.deserializeUser(function(user, done) {
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Serve static files (frontend)
-app.use(express.static('public'));
-
 // Google OAuth login route
-app.get('/auth/google',
-  passport.authenticate('google', {
-    scope: ['profile', 'email'] // You can add more scopes if needed
-  })
-);
+app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 
 // Google OAuth callback route
-app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/' }),
-  function(req, res) {
-    // On successful login, redirect to the dashboard or home page
-    res.redirect('/');
-  }
-);
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/' }), (req, res) => {
+  res.redirect('/');
+});
 
-// Route to get the logged-in user's info (for testing)
+// Route to get the logged-in user's info
 app.get('/profile', (req, res) => {
   if (!req.isAuthenticated()) {
     return res.redirect('/auth/google');
   }
-  res.json(req.user);
+  res.json(req.user);  // Return user profile info
 });
 
 // Route to log out
 app.get('/logout', (req, res) => {
-  req.logout(function(err) {
+  req.logout((err) => {
+    if (err) {
+      return res.status(500).send('Logout failed');
+    }
     res.redirect('/');
   });
 });
