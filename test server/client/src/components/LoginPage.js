@@ -5,13 +5,13 @@ import { GoogleLogin } from '@react-oauth/google';
 
 const LoginPage = ({ setIsAuthenticated, setUser }) => {
   const handleLoginSuccess = (response) => {
-    // Here you would typically send the response to your backend to verify the token
+    // Send the credential token (from Google) to the backend
     fetch('/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ token: response.credential }),
+      body: JSON.stringify({ token: response.credential }),  // Send the token to your backend
       credentials: 'include',  // Include cookies for session management
     })
       .then((res) => res.json())
@@ -31,7 +31,8 @@ const LoginPage = ({ setIsAuthenticated, setUser }) => {
   return (
     <div>
       <h2>Login</h2>
-      <GoogleLogin 
+      <GoogleLogin
+        clientId="425545250222-uqe3jr5a2mpnqvbufspavlopcdip55e7.apps.googleusercontent.com"  // Make sure the ID is correct
         onSuccess={handleLoginSuccess}
         onError={handleLoginError}
       />
