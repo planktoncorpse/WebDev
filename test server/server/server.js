@@ -1,117 +1,101 @@
+// Import required modules
 const express = require('express');
 const passport = require('passport');
 const session = require('express-session');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const mysql = require('mysql2');
-const dotenv = require('dotenv');
-const cors = require('cors');
-const path = require('path');  // For serving static files
+const path = require('path');
+const cors = require('cors'); // Import cors for cross-origin requests
+require('dotenv').config(); // Load environment variables from .env
 
-dotenv.config();
-
+// Initialize Express app
 const app = express();
-const port = process.env.PORT || 5000;
+const PORT = 5000;
 
-// Enable CORS with frontend URL (for development)
-const corsOptions = {
-  origin: 'http://localhost:3000', // Replace with your frontend URL
-  methods: ['GET', 'POST'],
-  credentials: true,  // Allow cookies to be sent
-};
-app.use(cors(corsOptions));
+// Enable CORS for your React app (if running on a different port)
+app.use(cors({
+  origin: 'http://localhost:3000',  // Change this if React app runs on a different URL
+  credentials: true  // Allow credentials (cookies, session) to be sent
+}));
 
-// MySQL connection setup
-const db = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-});
+// Body parser middleware to parse incoming request bodies
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Express session setup
+// Session middleware for tracking user sessions
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'fallback-secret-key',
+  secret: 'your-session-secret', // Make sure to change this in production
   resave: false,
   saveUninitialized: true,
   cookie: {
-    secure: false,  // Use true in production with HTTPS
     httpOnly: true,
-    maxAge: 3600000,  // 1 hour
-  },
+    secure: process.env.NODE_ENV === 'production' // Use secure cookies in production
+  }
 }));
 
-// Initialize Passport
+// Passport initialization
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Passport Google OAuth2.0 Strategy
+// Set up the Google OAuth strategy for Passport
 passport.use(new GoogleStrategy({
-  clientID: process.env.GOOGLE_CLIENT_ID,
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "http://localhost:5000/auth/google/callback",  // Callback URL
-}, function (accessToken, refreshToken, profile, done) {
-  return done(null, profile);
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: 'http://localhost:5000/auth/google/callback',
+  },
+  function(accessToken, refreshToken, profile, done) {
+    console.log('Google Profile:', profile);  // Log the user profile from Google
+    return done(null, profile);
+  }
+));
+
+// Serialize and deserialize user data into the session
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((user, done) => {
+  done(null, user);
+});
+
+// Route to start the Google OAuth login flow
+app.get('/auth/google', passport.authenticate('google', {
+  scope: ['profile', 'email']
 }));
 
-// Serialize and Deserialize user for session management
-passport.serializeUser(function (user, done) {
-  done(null, user);
-});
-
-passport.deserializeUser(function (user, done) {
-  done(null, user);
-});
-
-// Google OAuth login route
-app.get('/auth/google',
-  passport.authenticate('google', {
-    scope: ['profile', 'email']  // You can adjust the scope as needed
-  })
-);
-
-// Google OAuth callback route
-app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/' }),
-  function (req, res) {
-    res.redirect('/profile');
+// Google OAuth callback route to handle the redirect after successful login
+app.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  (req, res) => {
+    // Send a message back to the frontend window (open it with window.opener)
+    res.send(`<script>window.opener.postMessage('login-success', window.location.origin); window.close();</script>`);
   }
 );
 
-// Profile route to check if the user is authenticated
+// Route to check if user is authenticated and send profile data
 app.get('/profile', (req, res) => {
-  if (!req.isAuthenticated()) {
-    return res.redirect('/auth/google');
+  if (req.isAuthenticated()) {
+    return res.json(req.user); // Send back user profile if authenticated
   }
-  res.json(req.user);  // Return user data
+  res.status(401).send('Unauthorized'); // Send unauthorized if not authenticated
 });
 
-// Logout route
+// Route for logging out the user
 app.get('/logout', (req, res) => {
   req.logout((err) => {
-    if (err) {
-      return res.status(500).send('Logout failed');
-    }
+    if (err) return next(err);
     res.redirect('/');
   });
 });
 
-// Serve static files from the React app (for production)
-if (process.env.NODE_ENV === 'production') {
-  // Serve the static files from the build folder
-  app.use(express.static(path.join(__dirname, 'client', 'build')));
+// Serve static files from the React app (build folder)
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-  // For any other route, serve the React app
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-  });
-} else {
-  // For development, React handles its own routing
-  app.get('/', (req, res) => {
-    res.send('Hello, World!');
-  });
-}
+// Catch-all route for serving the React app for all other routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

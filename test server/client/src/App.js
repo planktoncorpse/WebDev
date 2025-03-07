@@ -1,27 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import './index.css';
-
-// Import components for different pages
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import GarageStatusPage from './components/GarageStatusPage';
 import ContactUsPage from './components/ContactUsPage';
 import LoginPage from './components/LoginPage';
-import ProfilePage from './components/ProfilePage';
-import UserProfile from './components/UserProfile'; // Assuming this is your UserProfile page
+import UserProfile from './components/UserProfile';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState(null);
 
-  // Check if the user is authenticated
   useEffect(() => {
-    fetch('/profile') // Check if the user is logged in
+    // Check if the user is authenticated on initial load
+    fetch('/profile', {
+      credentials: 'include',  // Include cookies for session management
+    })
       .then((response) => {
         if (response.ok) {
-          setIsAuthenticated(true);
-        } else {
-          setIsAuthenticated(false);
+          return response.json();
         }
+        throw new Error('Not authenticated');
+      })
+      .then((data) => {
+        setIsAuthenticated(true);
+        setUser(data); // Set user data from backend
       })
       .catch((err) => {
         console.error('Error checking authentication:', err);
@@ -38,9 +40,11 @@ const App = () => {
               <li><Link to="/">Home</Link></li>
               <li><Link to="/garage-status">Garage Status</Link></li>
               <li><Link to="/contact-us">Contact Us</Link></li>
-              {/* Only show Profile link if authenticated */}
               {isAuthenticated ? (
-                <li><Link to="/profile">Profile</Link></li>
+                <>
+                  <li><Link to="/profile">Profile</Link></li>
+                  <li><Link to="/logout">Logout</Link></li>
+                </>
               ) : (
                 <li><Link to="/login">Login</Link></li>
               )}
@@ -50,18 +54,32 @@ const App = () => {
 
         <main>
           <Routes>
-            {/* Home page should be the default route */}
             <Route path="/" element={<HomePage />} />
             <Route path="/garage-status" element={<GarageStatusPage />} />
             <Route path="/contact-us" element={<ContactUsPage />} />
             <Route path="/login" element={<LoginPage />} />
-            {/* Only show ProfilePage if user is authenticated */}
-            <Route path="/profile" element={isAuthenticated ? <UserProfile /> : <LoginPage />} />
+            <Route path="/profile" element={isAuthenticated ? <UserProfile user={user} /> : <Navigate to="/login" />} />
+            <Route path="/logout" element={<Logout />} />
           </Routes>
         </main>
       </div>
     </Router>
   );
+};
+
+// Logout component to handle logout
+const Logout = () => {
+  useEffect(() => {
+    fetch('/logout', {
+      credentials: 'include',  // Include cookies for session management
+    })
+      .then((response) => {
+        window.location.href = '/';  // Redirect to home page after logout
+      })
+      .catch((err) => console.error('Error logging out:', err));
+  }, []);
+
+  return <div>Logging out...</div>;
 };
 
 export default App;
