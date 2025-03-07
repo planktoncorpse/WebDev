@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
+import { GoogleLogin } from '@react-oauth/google';
 import HomePage from './components/HomePage';
 import GarageStatusPage from './components/GarageStatusPage';
 import ContactUsPage from './components/ContactUsPage';
@@ -57,7 +58,7 @@ const App = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/garage-status" element={<GarageStatusPage />} />
             <Route path="/contact-us" element={<ContactUsPage />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage setIsAuthenticated={setIsAuthenticated} setUser={setUser} />} />
             <Route path="/profile" element={isAuthenticated ? <UserProfile user={user} /> : <Navigate to="/login" />} />
             <Route path="/logout" element={<Logout />} />
           </Routes>

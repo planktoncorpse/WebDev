@@ -1,23 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';  // Use createRoot in React 18
 import './index.css';
 import App from './App';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 
-// Ensure that your .env file has REACT_APP_GOOGLE_CLIENT_ID set correctly
+// Fetch the client ID from the .env file
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 
 if (!clientId) {
-  console.error('REACT_APP_GOOGLE_CLIENT_ID is not set. Please add it to your .env file.');
+  console.error('Google Client ID is missing. Please check your .env file.');
 } else {
   console.log('Using Google Client ID:', clientId);
 }
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
     <GoogleOAuthProvider clientId={clientId}>
       <App />
     </GoogleOAuthProvider>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
