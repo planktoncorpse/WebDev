@@ -8,6 +8,20 @@ const cors = require('cors'); // Import cors for cross-origin requests
 require('dotenv').config(); // Load environment variables from .env
 const { OAuth2Client } = require('google-auth-library'); // Import google-auth-library
 
+// Other imported modules for getting data from the api into the MySQL stuff~~zzzzz
+const mysql = require('mysql2');
+const axios = require('axios');
+
+// Create MySQL connection pool ~~~
+const pool = mysql.createPool({
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
+});
+
+
 // Initialize Express app
 const app = express();
 const PORT = 5000;
@@ -115,12 +129,92 @@ app.post('/login', async (req, res) => {
   }
 });
 
+
+//FETCHING THE DATA STUFF!!~~~
+async function fetchAndStoreGarageData() {
+  try {
+    const url = 'https://secure.parking.ucf.edu/GarageCounter/GetOccupancy?_=1741385832468';
+    const { data } = await axios.get(url);
+
+
+
+    // Iterate over each garage record from the JSON array
+    data.forEach(item => {
+      const location = item.location;
+      const counts = location.counts;
+      const apiLocationId = counts.api_location_id;
+      const locationName = counts.location_name;
+      const total = counts.total;
+      const available = counts.available;
+      const occupied = counts.occupied;
+      const vacant = counts.vacant;
+      const outOfService = location.is_out_of_service;
+      const timeStampDate = counts.timeStampDate;
+      const timeStampTime = counts.timeStampTime;
+
+      // Insert or update the record.
+      // Make sure your "garages" table has a UNIQUE index on api_location_id.
+      const sql = `
+        INSERT INTO garages 
+          (api_location_id, location_name, total, available, occupied, vacant, out_of_service, timeStampDate, timeStampTime)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        ON DUPLICATE KEY UPDATE
+          total = VALUES(total),
+          available = VALUES(available),
+          occupied = VALUES(occupied),
+          vacant = VALUES(vacant),
+          out_of_service = VALUES(out_of_service),
+          timeStampDate = VALUES(timeStampDate),
+          timeStampTime = VALUES(timeStampTime)
+      `;
+
+      pool.query(sql, [apiLocationId, locationName, total, available, occupied, vacant, outOfService, timeStampDate, timeStampTime], (err, results) => {
+        if (err) {
+          console.error(`Error inserting/updating data for ${locationName}:`, err);
+        } else {
+          console.log(`Successfully inserted/updated data for ${locationName}`);
+        }
+      });
+    });
+  } catch (error) {
+    console.error('Error fetching garage data:', error);
+  }
+}
+
+const cron = require('node-cron');
+
+// Schedule the update to run every 2 minutes (I think this how often Rain said the site updates)
+cron.schedule('*/2 * * * *', () => {
+  console.log('Running scheduled garage data update');
+  fetchAndStoreGarageData();
+});
+
+// Endpoint to manually trigger an update of garage data
+app.get('/api/update-garages', async (req, res) => {
+  await fetchAndStoreGarageData();
+  res.json({ success: true, message: 'Garage data updated.' });
+});
+
+// Endpoint to retrieve garage data for the front end
+app.get('/api/garages', (req, res) => {
+  pool.query("SELECT * FROM garages", (err, results) => {
+    if (err) {
+      console.error("Error fetching garage data:", err);
+      res.status(500).json({ error: 'Database error' });
+    } else {
+      res.json(results);
+    }
+  });
+});
+
+//after this is the other react stuff
+
 // Serve static files from the React app (build folder)
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 // Catch-all route for serving the React app for all other routes
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
 });
 
 // Start the server
