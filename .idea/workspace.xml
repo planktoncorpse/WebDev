@@ -4,92 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cfad3d1-c226-4c54-9cd5-3583aff93c54" name="Changes" comment="Made changes so there's a main page now with some basic images on it.  Most of the edited stuff is just commenting out code so it will work for you locally.">
-      <change beforePath="$PROJECT_DIR$/test server/client/src/components/GarageStatusPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/client/src/components/GarageStatusPage.js" afterDir="false" />
+    <list default="true" id="1cfad3d1-c226-4c54-9cd5-3583aff93c54" name="Changes" comment="moved out my personal database password and put back in the one that was there, lol">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test server/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test server/client/src/components/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/client/src/components/LoginPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test server/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/client/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test server/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/.bin/mime" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/.bin/mime" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/.bin/uuid" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/.bin/uuid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/mime/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/mime/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/mime/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/mime/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/mime/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/mime/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/mime/cli.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/mime/cli.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/mime/mime.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/mime/mime.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/mime/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/mime/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/mime/src/build.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/mime/src/build.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/mime/src/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/mime/src/test.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/CONTRIBUTING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/LICENSE.md" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/LICENSE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/bin/uuid" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/bin/uuid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/md5.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/md5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/native.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/native.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/nil.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/nil.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/parse.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/parse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/regex.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/regex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/rng.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/rng.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/sha1.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/sha1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/stringify.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/stringify.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/v1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/v3.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/v3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/v35.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/v35.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/v4.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/v4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/v5.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/v5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/validate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/version.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/commonjs-browser/version.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/md5.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/md5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/native.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/native.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/parse.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/parse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/rng.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/rng.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/sha1.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/sha1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/stringify.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/stringify.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/v1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/v3.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/v3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/v35.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/v35.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/v4.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/v4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/v5.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/v5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/validate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/version.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-browser/version.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/md5.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/md5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/native.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/native.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/parse.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/parse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/rng.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/rng.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/sha1.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/sha1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/stringify.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/stringify.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/v1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/v3.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/v3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/v35.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/v35.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/v4.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/v4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/v5.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/v5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/validate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/version.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/esm-node/version.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/md5-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/md5-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/md5.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/md5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/native-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/native-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/native.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/native.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/nil.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/nil.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/parse.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/parse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/regex.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/regex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/rng-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/rng-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/rng.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/rng.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/sha1-browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/sha1-browser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/sha1.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/sha1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/stringify.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/stringify.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/uuid-bin.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/uuid-bin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/v1.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/v1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/v3.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/v3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/v35.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/v35.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/v4.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/v4.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/v5.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/v5.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/validate.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/validate.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/version.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/dist/version.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/node_modules/uuid/wrapper.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/node_modules/uuid/wrapper.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test server/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,6 +39,9 @@
     &quot;accountId&quot;: &quot;35225e95-dd6e-4c4f-b849-3fcdcabcbc71&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -127,31 +50,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Node.js.App.js.executor": "Run",
-    "Node.js.server.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Gheiath Ewais/WebstormProjects/WebDev",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "C:/Users/Gheiath Ewais/AppData/Roaming/JetBrains/WebStorm2024.3/node/versions/22.14.0/node",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "inlay.hints",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Node.js.App.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.server.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Gheiath Ewais/WebstormProjects/WebDev&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;C:/Users/Gheiath Ewais/AppData/Roaming/JetBrains/WebStorm2024.3/node/versions/22.14.0/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="open" />
@@ -184,7 +107,8 @@
       <workItem from="1740796961197" duration="15415000" />
       <workItem from="1741069718050" duration="10998000" />
       <workItem from="1741366892158" duration="16807000" />
-      <workItem from="1741832976212" duration="19475000" />
+      <workItem from="1741832976212" duration="21249000" />
+      <workItem from="1743528563029" duration="19253000" />
     </task>
     <task id="LOCAL-00001" summary="Made changes so there's a main page now with some basic images on it.  Most of the edited stuff is just commenting out code so it will work for you locally.">
       <option name="closed" value="true" />
@@ -194,7 +118,31 @@
       <option name="project" value="LOCAL" />
       <updated>1740808366836</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="I was able to build a local database for all the data coming from the website linked. I did get the front end to pull the data from the MySQL database and display it on the web page. I needed to &quot;npm install axios&quot; for fetching the data and &quot;npm install node-cron&quot; for making the data tables update (I set the increment to 2 minutes) . &#10;Like Rain said, there is data for all the garages since the data was there for them in the site I used it all, but we can take out Amelia Paramore and Rosen lot if we want. As of now the front  shows the all 9. &#10;for the tables, I set the primary id to be an AUTO_INCREMENT in, but used api location id as a UNIQUE KEY.  I'm gonna put a .sql export in the root folder of the project if anyone wants to import a their table to look like mine and use the functions mine uses. &#10;I have not touched anything else about the migrating the garage status to the home page or the google maps issue or the OAUTH thing.">
+      <option name="closed" value="true" />
+      <created>1742068730070</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1742068730070</updated>
+    </task>
+    <task id="LOCAL-00003" summary="I was able to build a local database for all the data coming from the website linked. I did get the front end to pull the data from the MySQL database and display it on the web page. I needed to &quot;npm install axios&quot; for fetching the data and &quot;npm install node-cron&quot; for making the data tables update (I set the increment to 2 minutes) . &#10;Like Rain said, there is data for all the garages since the data was there for them in the site I used it all, but we can take out Amelia Paramore and Rosen lot if we want. As of now the front  shows the all 9. &#10;for the tables, I set the primary id to be an AUTO_INCREMENT in, but used api location id as a UNIQUE KEY.  I'm gonna put a .sql export in the root folder of the project if anyone wants to import a their table to look like mine and use the functions mine uses. &#10;I have not touched anything else about the migrating the garage status to the home page or the google maps issue or the OAUTH thing.">
+      <option name="closed" value="true" />
+      <created>1742068748788</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742068748788</updated>
+    </task>
+    <task id="LOCAL-00004" summary="moved out my personal database password and put back in the one that was there, lol">
+      <option name="closed" value="true" />
+      <created>1742068904385</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742068904385</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -213,6 +161,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Made changes so there's a main page now with some basic images on it.  Most of the edited stuff is just commenting out code so it will work for you locally." />
-    <option name="LAST_COMMIT_MESSAGE" value="Made changes so there's a main page now with some basic images on it.  Most of the edited stuff is just commenting out code so it will work for you locally." />
+    <MESSAGE value="I was able to build a local database for all the data coming from the website linked. I did get the front end to pull the data from the MySQL database and display it on the web page. I needed to &quot;npm install axios&quot; for fetching the data and &quot;npm install node-cron&quot; for making the data tables update (I set the increment to 2 minutes) . &#10;Like Rain said, there is data for all the garages since the data was there for them in the site I used it all, but we can take out Amelia Paramore and Rosen lot if we want. As of now the front  shows the all 9. &#10;for the tables, I set the primary id to be an AUTO_INCREMENT in, but used api location id as a UNIQUE KEY.  I'm gonna put a .sql export in the root folder of the project if anyone wants to import a their table to look like mine and use the functions mine uses. &#10;I have not touched anything else about the migrating the garage status to the home page or the google maps issue or the OAUTH thing." />
+    <MESSAGE value="moved out my personal database password and put back in the one that was there, lol" />
+    <option name="LAST_COMMIT_MESSAGE" value="moved out my personal database password and put back in the one that was there, lol" />
   </component>
 </project>

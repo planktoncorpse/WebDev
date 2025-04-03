@@ -1,11 +1,12 @@
 // Import required modules
+require('dotenv').config(); // Load environment variables from .env
 const express = require('express');
 const passport = require('passport');
 const session = require('express-session');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const path = require('path');
 const cors = require('cors'); // Import cors for cross-origin requests
-require('dotenv').config(); // Load environment variables from .env
+
 const { OAuth2Client } = require('google-auth-library'); // Import google-auth-library
 
 // Other imported modules for getting data from the api into the MySQL stuff~~zzzzz
@@ -54,16 +55,20 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//test 2
 // Set up the Google OAuth strategy for Passport
 passport.use(new GoogleStrategy({
-    clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: 'http://localhost:5000/auth/google/callback',
-  },
-  function(accessToken, refreshToken, profile, done) {
-    console.log('Google Profile:', profile);  // Log the user profile from Google
-    return done(null, profile);
-  }
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: 'http://localhost:5000/auth/google/callback',
+    },
+    (accessToken, refreshToken, profile, done) => {
+      console.log("GoogleStrategy callback invoked");
+      console.log("Access Token:", accessToken);
+      console.log("Refresh Token:", refreshToken);
+      console.log("Profile:", profile);
+      return done(null, profile);
+    }
 ));
 
 // Serialize and deserialize user data into the session
@@ -75,18 +80,28 @@ passport.deserializeUser((user, done) => {
   done(null, user);
 });
 
+//test 1
 // Route to start the Google OAuth login flow
-app.get('/auth/google', passport.authenticate('google', {
+app.get('/auth/google', (req, res, next) => {
+  console.log("Entering /auth/google route, URL:", req.url);
+  next();
+}, passport.authenticate('google', {
   scope: ['profile', 'email']
 }));
 
+//test 3
 // Google OAuth callback route to handle the redirect after successful login
-app.get('/auth/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/login' }),
-  (req, res) => {
-    // Send a message back to the frontend window (open it with window.opener)
-    res.send(`<script>window.opener.postMessage('login-success', window.location.origin); window.close();</script>`);
-  }
+app.get('/auth/google/callback',
+    (req, res, next) => {
+      console.log("In /auth/google/callback route, query parameters:", req.query);
+      next();
+    },
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    (req, res) => {
+      console.log("Authentication successful, user session:", req.session);
+      // Send a message back to the frontend window (open it with window.opener)
+      res.send(`<script>window.opener.postMessage('login-success', window.location.origin); window.close();</script>`);
+    }
 );
 
 // Route to check if user is authenticated and send profile data
@@ -105,9 +120,11 @@ app.get('/logout', (req, res) => {
   });
 });
 
+//test 4
 // Route to handle login by verifying Google token
 app.post('/login', async (req, res) => {
   const { token } = req.body;
+  console.log("Received token in /login route:", token);
 
   try {
     // Verify the token using Google's OAuth2 client
@@ -115,16 +132,16 @@ app.post('/login', async (req, res) => {
       idToken: token,
       audience: process.env.GOOGLE_CLIENT_ID,  // Ensure it matches your Google Client ID
     });
-    
+
     const payload = ticket.getPayload(); // Payload will contain user info
-    console.log(payload);  // Log user info for debugging
+    console.log("Token verified. Payload:", payload);
 
     // You can create your session or any other logic here for your app
     req.session.user = payload;  // Store the user info in the session
 
     res.json(payload);  // Send back the user data to the frontend
   } catch (error) {
-    console.error('Error verifying token:', error);
+    console.error("Error verifying token:", error);
     res.status(400).send('Invalid token');
   }
 });
@@ -172,7 +189,7 @@ async function fetchAndStoreGarageData() {
         if (err) {
           console.error(`Error inserting/updating data for ${locationName}:`, err);
         } else {
-          console.log(`Successfully inserted/updated data for ${locationName}`);
+          console.log(`Successfully updated da stuff for ${locationName}`);
         }
       });
     });
@@ -184,8 +201,8 @@ async function fetchAndStoreGarageData() {
 const cron = require('node-cron');
 
 // Schedule the update to run every 2 minutes (I think this how often Rain said the site updates)
-cron.schedule('*/2 * * * *', () => {
-  console.log('Running scheduled garage data update');
+cron.schedule('*/1 * * * *', () => {
+  console.log('Updating the garage data homie!!!');
   fetchAndStoreGarageData();
 });
 
@@ -221,3 +238,5 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
+//This is to test for if Node can find .env file
+console.log('Server sees GOOGLE_CLIENT_ID:', process.env.GOOGLE_CLIENT_ID);
