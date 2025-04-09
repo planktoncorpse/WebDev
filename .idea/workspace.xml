@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cfad3d1-c226-4c54-9cd5-3583aff93c54" name="Changes" comment="moved out my personal database password and put back in the one that was there, lol">
+    <list default="true" id="1cfad3d1-c226-4c54-9cd5-3583aff93c54" name="Changes" comment="Made Google Maps api load for the entire page. Being redirected to the home page now will load the maps. Script added to root folder to load client and server at the same time. Import MySQL Data from server to front end garage fullness page. Oauth now works from the client side (pulls results and verification from server side.). Fixed ability to log out (kinda of). Profiles updated to fetch login data. added Color palette of 10  colors for garage fullness indicators. added color gradients to most labels. map boxed expand when hovered over. added footer with social media logos. added disclaimer page.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test server/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test server/client/src/components/GarageStatusPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/client/src/components/GarageStatusPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test server/client/src/components/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/client/src/components/HomePage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test server/client/src/components/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/client/src/components/LoginPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test server/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/client/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test server/client/src/components/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/client/src/components/UserProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test server/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/test server/client/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test server/client/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/test server/client/src/styles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test server/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test server/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/test server/server/server.js" afterDir="false" />
     </list>
@@ -50,31 +57,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Node.js.App.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.server.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Gheiath Ewais/WebstormProjects/WebDev&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;C:/Users/Gheiath Ewais/AppData/Roaming/JetBrains/WebStorm2024.3/node/versions/22.14.0/node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Node.js.App.js.executor": "Run",
+    "Node.js.server.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Gheiath Ewais/WebstormProjects/WebDev",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "C:/Users/Gheiath Ewais/AppData/Roaming/JetBrains/WebStorm2024.3/node/versions/22.14.0/node",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="open" />
@@ -108,7 +115,8 @@
       <workItem from="1741069718050" duration="10998000" />
       <workItem from="1741366892158" duration="16807000" />
       <workItem from="1741832976212" duration="21249000" />
-      <workItem from="1743528563029" duration="19253000" />
+      <workItem from="1743528563029" duration="20790000" />
+      <workItem from="1744154908061" duration="25756000" />
     </task>
     <task id="LOCAL-00001" summary="Made changes so there's a main page now with some basic images on it.  Most of the edited stuff is just commenting out code so it will work for you locally.">
       <option name="closed" value="true" />
@@ -142,7 +150,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742068904385</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="moved out my personal database password and put back in the one that was there, lol">
+      <option name="closed" value="true" />
+      <created>1743718453880</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1743718453880</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +179,7 @@
     <MESSAGE value="Made changes so there's a main page now with some basic images on it.  Most of the edited stuff is just commenting out code so it will work for you locally." />
     <MESSAGE value="I was able to build a local database for all the data coming from the website linked. I did get the front end to pull the data from the MySQL database and display it on the web page. I needed to &quot;npm install axios&quot; for fetching the data and &quot;npm install node-cron&quot; for making the data tables update (I set the increment to 2 minutes) . &#10;Like Rain said, there is data for all the garages since the data was there for them in the site I used it all, but we can take out Amelia Paramore and Rosen lot if we want. As of now the front  shows the all 9. &#10;for the tables, I set the primary id to be an AUTO_INCREMENT in, but used api location id as a UNIQUE KEY.  I'm gonna put a .sql export in the root folder of the project if anyone wants to import a their table to look like mine and use the functions mine uses. &#10;I have not touched anything else about the migrating the garage status to the home page or the google maps issue or the OAUTH thing." />
     <MESSAGE value="moved out my personal database password and put back in the one that was there, lol" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved out my personal database password and put back in the one that was there, lol" />
+    <MESSAGE value="Made Google Maps api load for the entire page. Being redirected to the home page now will load the maps. Script added to root folder to load client and server at the same time. Import MySQL Data from server to front end garage fullness page. Oauth now works from the client side (pulls results and verification from server side.). Fixed ability to log out (kinda of). Profiles updated to fetch login data. added Color palette of 10  colors for garage fullness indicators. added color gradients to most labels. map boxed expand when hovered over. added footer with social media logos. added disclaimer page." />
+    <option name="LAST_COMMIT_MESSAGE" value="Made Google Maps api load for the entire page. Being redirected to the home page now will load the maps. Script added to root folder to load client and server at the same time. Import MySQL Data from server to front end garage fullness page. Oauth now works from the client side (pulls results and verification from server side.). Fixed ability to log out (kinda of). Profiles updated to fetch login data. added Color palette of 10  colors for garage fullness indicators. added color gradients to most labels. map boxed expand when hovered over. added footer with social media logos. added disclaimer page." />
   </component>
 </project>

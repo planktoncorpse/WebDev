@@ -99,8 +99,8 @@ app.get('/auth/google/callback',
     passport.authenticate('google', { failureRedirect: '/login' }),
     (req, res) => {
       console.log("Authentication successful, user session:", req.session);
-      // Send a message back to the frontend window (open it with window.opener)
-      res.send(`<script>window.opener.postMessage('login-success', window.location.origin); window.close();</script>`);
+      // For simplicity, redirect to home instead of sending a script to close window:
+      res.redirect('http://localhost:3000');
     }
 );
 
@@ -116,7 +116,7 @@ app.get('/profile', (req, res) => {
 app.get('/logout', (req, res) => {
   req.logout((err) => {
     if (err) return next(err);
-    res.redirect('/');
+    res.redirect('http://localhost:3000');
   });
 });
 
@@ -225,6 +225,7 @@ app.get('/api/garages', (req, res) => {
 });
 
 //after this is the other react stuff
+//just a bunch of print to see where stuff is failing and give status info
 
 // Serve static files from the React app (build folder)
 app.use(express.static(path.join(__dirname, '../client/build')));

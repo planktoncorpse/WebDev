@@ -9,11 +9,7 @@ const LoginPage = ({ setIsAuthenticated, setUser }) => {
         <div>
             <h1>Login</h1>
             <p>Please log in using your Google account.</p>
-            <a
-                href="http://localhost:5000/auth/google"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
+            <a href="http://localhost:5000/auth/google">
                 <button type="button">Login with Google</button>
             </a>
         </div>

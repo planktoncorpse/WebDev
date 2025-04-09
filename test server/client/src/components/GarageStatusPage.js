@@ -11,18 +11,31 @@ const initialGarages = [
   { name: "Garage I", current: 0, capacity: 1270 },
 ];
 
-// Function to determine garage fullness and assign color based on availability
+// I changed the function to add more colorrs lmao
 const getGarageStatusClass = (current, capacity) => {
-  const percentageFull = (current / capacity) * 100;
-  if (percentageFull === 0) {
-    return 'green'; // 100% available
-  } else if (percentageFull > 75) {
-    return 'red';   // More than 75% full
-  } else if (percentageFull <= 75 && percentageFull >= 25) {
-    return 'orange'; // Between 25% and 75%
-  } else {
-    return 'green'; // Less than 25% full
-  }
+    const percentageFull = (current / capacity) * 100;
+
+    if (percentageFull <= 10) {
+        return 'status-1'; // 0-10% full: Bright Green (mostly empty)
+    } else if (percentageFull <= 20) {
+        return 'status-2'; // 11-20%
+    } else if (percentageFull <= 30) {
+        return 'status-3'; // 21-30%
+    } else if (percentageFull <= 40) {
+        return 'status-4'; // 31-40%
+    } else if (percentageFull <= 50) {
+        return 'status-5'; // 41-50%
+    } else if (percentageFull <= 60) {
+        return 'status-6'; // 51-60%
+    } else if (percentageFull <= 70) {
+        return 'status-7'; // 61-70%
+    } else if (percentageFull <= 80) {
+        return 'status-8'; // 71-80%
+    } else if (percentageFull <= 90) {
+        return 'status-9'; // 81-90%
+    } else {
+        return 'status-10'; // 91-100%: Red (almost or completely full)
+    }
 };
 
 const GarageStatusPage = () => {
@@ -31,7 +44,7 @@ const GarageStatusPage = () => {
 
   // Fetch parking data from backend on component mount
   useEffect(() => {
-    fetch('/api/garages')
+      fetch('http://localhost:5000/api/garages')
         .then((response) => response.json())
         .then((data) => {
           // Map the backend data to match the expected object structure:
