@@ -41,7 +41,7 @@ Setup Oauth with google cloud:
 19. From the terminal in  your IDE type "npm start"
 20. verify that the terminal outputs statements 
 
- webdev-root@1.0.0 start
+/*webdev-root@1.0.0 start
 > concurrently "npm start --prefix \"test server\"/server" "npm start --prefix \"test server\"/client"
 
 [1] 
@@ -79,7 +79,7 @@ Setup Oauth with google cloud:
 [0] Successfully updated da stuff for Garage H
 [0] Successfully updated da stuff for Garage D
 [0] Successfully updated da stuff for Garage A
-[0] Successfully updated da stuff for Rosen Lot
+[0] Successfully updated da stuff for Rosen Lot*/
 
 
 AI USAGE:
