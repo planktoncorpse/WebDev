@@ -22,24 +22,42 @@ How to use site:
 5. also do and "npm install concurrently --save dev" if you want use the script for running the client and server in one command
 
 Setup local MySQL server:
+
 6. Download/install MySQL Community server
+
 7. Create a new database (i'm not going to go into detail about this)
+
 8. Download the ucf_parking.sql export I left in the root directory of the project
+
 9. import that stuff so you have the table structure for the database to run local
+
 10. go to the .env file in the directory "test server"--> server-->routes-->.env
+
 11. change the credentials to match your database name and password
+
 12. The program should be able to automatically access your tables and update them using the external endpoints
 
+
 Setup Oauth with google cloud:
+
 13. Go to google cloud and sign up for Oauth 2.0 Client IDs
+
 14. Go to the credentials tab and "create credentials"
+
 15. Once done setting up, your authoriazed JavaScript origins should be set to "http://localhost:5000"
+
 16. Authorized redirect URIs  set to: "http://localhost:5000/auth/google/callback"
+
 17. Now from the clients tab get your "Client ID", "Client secret" 
+
 18. update those credentials in your .env file.
 
+
 19. From the terminal in  your IDE type "npm start"
+
 20. verify that the terminal outputs statements 
+
+
 
 > webdev-root@1.0.0 start
 > concurrently "npm start --prefix \"test server\"/server" "npm start --prefix \"test server\"/client"
