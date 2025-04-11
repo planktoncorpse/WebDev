@@ -10,6 +10,7 @@ How to use site:
 3. (install node) nginx Copy node -v
 
 4. install all dependancies and packages:
+
 	"@react-google-maps/api": "^2.20.6",
 
         "cors": "^2.8.5",
@@ -69,7 +70,9 @@ Setup Oauth with google cloud:
 
 
 > webdev-root@1.0.0 start
+
 > concurrently "npm start --prefix \"test server\"/server" "npm start --prefix \"test server\"/client"
+
 
 >[1] 
 >[1] > client@1.0.0 start
