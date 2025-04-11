@@ -81,3 +81,47 @@ Setup Oauth with google cloud:
 [0] Successfully updated da stuff for Garage A
 [0] Successfully updated da stuff for Rosen Lot
 
+
+AI USAGE:
+AI Usage Summary – Parking Garage App Project
+Overall Role of AI:
+AI (ChatGPT, Deepseek, Copilot, JanAI:Qwen2.5 Coder 32B Instruct Q4[local run model]) was used extensively throughout the project to guide development, debug code, and streamline implementation decisions by the whole group.
+
+Prompts Used:
+
+-Web app architecture (JavaScript/React) design
+
+-Design and logic help for a real-time parking garage monitor
+
+-Optimization of SQL database foreign key handling
+
+-Component and function breakdowns
+
+
+
+Affected Components & Features:
+
+-Frontend Pages:
+
+-Homepage (displaying google maps of garages)
+
+-Garage status display (HTML/CSS guidance and design)
+
+-Real-time updates logic (JavaScript help for sensor integration and UI refresh)
+
+-Login page
+
+-User profile page
+
+
+Backend Functions:
+
+-Recommendations for normalization and foreign key constraints
+
+
+AI Contributions:
+
+Accelerated troubleshooting and logic validation
+
+Helped break down unfamiliar tasks (e.g. React.js, Oauth, GoogleAPI, Express.js, etc)
+
