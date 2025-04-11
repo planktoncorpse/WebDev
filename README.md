@@ -11,14 +11,23 @@ How to use site:
 
 4. install all dependancies and packages:
 	"@react-google-maps/api": "^2.20.6",
+
         "cors": "^2.8.5",
+
         "dotenv": "^16.4.7",
+
         "express": "^4.21.2",
+
         "express-session": "^1.18.1",
+
         "mysql2": "^3.12.0",
+
         "passport": "^0.7.0",
+
         "passport-google-oauth20": "^2.0.0",
+
         "passport-saml": "^3.2.4"
+
 5. also do and "npm install concurrently --save dev" if you want use the script for running the client and server in one command
 
 Setup local MySQL server:
